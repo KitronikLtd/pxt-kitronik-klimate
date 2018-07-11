@@ -2,5 +2,5 @@
 basic.forever(() => {
     basic.showNumber(Kitronik_klimate.temperature(Kitronik_klimate.TemperatureUnitList.C))
     basic.showNumber(Kitronik_klimate.pressure(Kitronik_klimate.PressureUnitList.Pa))
-    basic.showNumber(Kitronik_klimate.hunidity())
+    basic.showNumber(Kitronik_klimate.humidity())
 })

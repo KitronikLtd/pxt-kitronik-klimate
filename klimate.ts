@@ -219,7 +219,7 @@ namespace Kitronik_klimate {
     //% blockId=kitronik_klimate_read_humidity
     //% block="Read Humidity"
     //% weight=75 blockGap=8
-    export function hunidity(): number {
+    export function humidity(): number {
         if (initalised == false)
             secretIncantation()
 
