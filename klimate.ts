@@ -3,7 +3,7 @@
  * Sensor Chip: BME280
  */
 //% weight=100 color=#00A654 icon="\uf2c9" block="Kitronik Klimate"
-namespace Kitronik_BME280 {
+namespace Kitronik_klimate {
 
 	//Useful BME280 constants
 	const CHIP_ADDRESS = 0x76
@@ -175,7 +175,7 @@ namespace Kitronik_BME280 {
 	* Read Pressure from sensor as Number.
 	* Units for pressure are in Pa (Pascals) or mBar (millibar) according to selection
 	*/
-    //% blockId=kitronik_bme280_read_pressure
+    //% blockId=kitronik_klimate_read_pressure
     //% block="Read Pressure in %pressure_unit"
     //% weight=85 blockGap=8
     export function pressure(pressure_unit: PressureUnitList): number {
@@ -196,7 +196,7 @@ namespace Kitronik_BME280 {
 	* Read Temperature from sensor as Number.
 	* Units for temperature are in °C (Celsius) or °F (Fahrenheit) according to selection
 	*/
-    //% blockId="kitronik_bme280_read_temperature"
+    //% blockId="kitronik_klimate_read_temperature"
     //% block="Read Temperature in %temperature_unit"
     //% weight=80 blockGap=8
     export function temperature(temperature_unit: TemperatureUnitList): number {
@@ -216,7 +216,7 @@ namespace Kitronik_BME280 {
 	* Read Humidity from sensor as Number.
 	* Units for humidity are as a percentage
 	*/
-    //% blockId=kitronik_bme280_read_humidity
+    //% blockId=kitronik_klimate_read_humidity
     //% block="Read Humidity"
     //% weight=75 blockGap=8
     export function hunidity(): number {

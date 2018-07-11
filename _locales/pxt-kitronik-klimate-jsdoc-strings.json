@@ -1,0 +1,6 @@
+{
+  "Kitronik_klimate": "Kitronik Klimate blocks\r\nSensor Chip: BME280",
+  "Kitronik_klimate.hunidity": "Read Humidity from sensor as Number.\r\nUnits for humidity are as a percentage",
+  "Kitronik_klimate.pressure": "Read Pressure from sensor as Number.\r\nUnits for pressure are in Pa (Pascals) or mBar (millibar) according to selection",
+  "Kitronik_klimate.temperature": "Read Temperature from sensor as Number.\r\nUnits for temperature are in °C (Celsius) or °F (Fahrenheit) according to selection"
+}

@@ -1,0 +1,11 @@
+{
+  "Kitronik_klimate.PressureUnitList.Pa|block": "Pa",
+  "Kitronik_klimate.PressureUnitList.mBar|block": "mBar",
+  "Kitronik_klimate.TemperatureUnitList.C|block": "°C",
+  "Kitronik_klimate.TemperatureUnitList.F|block": "°F",
+  "Kitronik_klimate.hunidity|block": "Read Humidity",
+  "Kitronik_klimate.pressure|block": "Read Pressure in %pressure_unit",
+  "Kitronik_klimate.temperature|block": "Read Temperature in %temperature_unit",
+  "Kitronik_klimate|block": "Kitronik Klimate",
+  "{id:category}Kitronik_klimate": "Kitronik_klimate"
+}
