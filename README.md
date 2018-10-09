@@ -2,11 +2,12 @@
 
 # Kitronik blocks for micro:bit
 
-Blocks that support [Kitronik klimate board for the micro:bit]
+Blocks that support [Kitronik kits and shields for the micro:bit](https://www.kitronik.co.uk/microbit.html)
+This package is for the [Kitronik Klimate Board] (hhtp://www.kitronik.co.uk/5636)
 
 ## Klimate
 
-* show temperature as number
+* read the temperature as a number measured in degrees C
 
 ```blocks
 basic.forever(() => {
@@ -14,7 +15,7 @@ basic.forever(() => {
 })
 ```
 
-* show pressure as number
+* read the pressure as a number measured in Pascals
 
 ```blocks
 basic.forever(() => {
@@ -22,7 +23,7 @@ basic.forever(() => {
 })
 ```
 
-* show humidity as number
+* read the humidity as a number measured in Percentage
 
 ```blocks
 basic.forever(() => {

@@ -89,9 +89,6 @@ namespace Kitronik_klimate {
     let adcRawHumidity = 0       //adc reading of raw humidity
 
 
-
-
-
 	/* secretIncantation function is only called once at the beginning in order to set up the BME280 sensor.
 	* This function should not need to be called by a user, it is called automatically on first use of a BME280 function
 	*/
@@ -114,6 +111,10 @@ namespace Kitronik_klimate {
     }
 
 	
+	/*readRawReadings reads all registers to do with measurements from the BME280 chip .
+	* Once all bytes are collated, the required bytes are shifted left or right depending if it was most or least significate bites.
+	* At the end of the fuction, there are three globals with the raw readings of temperature, pressure and humidity.
+	*/
     function readRawReadings(): void {
 
         //now read the results
@@ -126,10 +127,17 @@ namespace Kitronik_klimate {
         adcRawHumidity = ((measurementsBuf[6] << 8) | measurementsBuf[7])
     }
 
+	
+	/*convertReadings takes the raw adc global and uses the BME280 custom trimming parameters, then calaculate the actual readings.
+	* Temperature is in degrees C
+	* Pressure is in Pascals
+	* Humidity is in percentage
+	*/
     function convertReadings(): void {
 
         //Convert raw temperature to °C reading
 		// var1 and var2 are variables that are re-used within the function only for calculation as temperary variables
+		basic.showNumber(DIG_T1)
         let var1 = (((adcRawTemperature >> 3) - (DIG_T1 << 1)) * DIG_T2) >> 11
         let var2 = (((((adcRawTemperature >> 4) - DIG_T1) * ((adcRawTemperature >> 4) - DIG_T1)) >> 12) * DIG_T3) >> 14
         let temperatureCalculation = var1 + var2
@@ -178,13 +186,14 @@ namespace Kitronik_klimate {
     //% blockId=kitronik_klimate_read_pressure
     //% block="Read Pressure in %pressure_unit"
     //% weight=85 blockGap=8
-    export function pressure(pressure_unit: PressureUnitList): number {
+    export function pressure(pressure_unit: Kitronik_klimate.PressureUnitList): number {
         if (initalised == false)
             secretIncantation()
 
         readRawReadings();
         convertReadings();
 
+		//Change pressure from Pascals to millibar
         if (pressure_unit == PressureUnitList.mBar)
             pressureReading = + pressureReading / 100
 
@@ -199,19 +208,21 @@ namespace Kitronik_klimate {
     //% blockId="kitronik_klimate_read_temperature"
     //% block="Read Temperature in %temperature_unit"
     //% weight=80 blockGap=8
-    export function temperature(temperature_unit: TemperatureUnitList): number {
+    export function temperature(temperature_unit: Kitronik_klimate.TemperatureUnitList): number {
         if (initalised == false)
             secretIncantation()
 
         readRawReadings();
         convertReadings();
 
+		//Change temperature from degrees C to degrees F
         if (temperature_unit == TemperatureUnitList.F)
             temperatureReading = + ((temperatureReading * 18) + 320) / 10
 
         return temperatureReading;
     }
 
+	
     /**
 	* Read Humidity from sensor as Number.
 	* Units for humidity are as a percentage
