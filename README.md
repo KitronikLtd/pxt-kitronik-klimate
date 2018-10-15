@@ -30,3 +30,16 @@ basic.forever(() => {
     basic.showNumber(Kitronik_klimate.humidity())
 })
 ```
+## License
+
+MIT
+
+## Supported targets
+
+* for PXT/microbit
+(The metadata above is needed for package search.)
+
+
+```package
+pxt-kitronik-klimate=github:KitronikLtd/pxt-kitronik-klimate
+```
