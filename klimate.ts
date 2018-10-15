@@ -137,7 +137,6 @@ namespace Kitronik_klimate {
 
         //Convert raw temperature to °C reading
 		// var1 and var2 are variables that are re-used within the function only for calculation as temperary variables
-		basic.showNumber(DIG_T1)
         let var1 = (((adcRawTemperature >> 3) - (DIG_T1 << 1)) * DIG_T2) >> 11
         let var2 = (((((adcRawTemperature >> 4) - DIG_T1) * ((adcRawTemperature >> 4) - DIG_T1)) >> 12) * DIG_T3) >> 14
         let temperatureCalculation = var1 + var2
