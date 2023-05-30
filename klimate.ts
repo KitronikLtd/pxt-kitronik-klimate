@@ -219,8 +219,6 @@ namespace Kitronik_klimate {
 		//Change temperature from degrees C to degrees F
         if (temperature_unit == TemperatureUnitList.F)
             temperatureReading = + ((temperatureReading * 18) + 320) / 10
-		
-		temperatureReading = Math.round(temperatureReading)
 
         return temperatureReading;
     }
